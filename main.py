@@ -4,7 +4,7 @@ import jinja2
 import webapp2
 import random
 from time import gmtime, strftime
-from DnaOseba import OsebaDna
+from NarediObjekt import OsebaDna
 
 
 template_dir = os.path.join(os.path.dirname(__file__), "templates")
