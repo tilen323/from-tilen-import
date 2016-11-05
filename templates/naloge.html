@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container">
+        <h1 class="tecaj">Tecaj 15:</h1>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga151">Domaca naloga 15.1: Trenutni cas</a>
+                    </h4>
+                </div>
+                <div id="naloga151" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>{{ cas }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga153">Domaca naloga 15.3: Loterija (spet)</a>
+                    </h4>
+                </div>
+                <div id="naloga153" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Vasa loto stevila so:</p>
+                        <p>{{ loto }}</p></div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="tecaj">Tecaj 16:</h1>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga161">Domaca naloga 16.1: Kalkulator</a>
+                    </h4>
+                </div>
+                <div id="naloga161" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Vnesi enacbo (+, - ali *):</p>
+                        <form class="form-inline" method="post" action="/kalkulator">
+                            <input class="form-control" name="vnos-enacbe" required="required">
+                            <button class="btn btn-default" type="submit">Rezultat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga162">Domaca naloga 16.2: Ugani skrito stevilo</a>
+                    </h4>
+                </div>
+                <div id="naloga162" class="panel-collapse collapse">
+                    <div class="panel-body"><p>Ugani stevilo med 1 in 10!</p>
+                        <form class="form-inline" method="post" action="/ugani_stevilo">
+                            <input class="form-control" name="vnos-ugani-stevilo" required="required" pattern="[0-9]+" title="Vnesi stevilo med 1 in 10">
+                            <button class="btn btn-default" type="submit">Poskus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga163">Domaca naloga 16.3: Pretvornik enot</a>
+                    </h4>
+                </div>
+                <div id="naloga163" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Najprej izberi enoto, nato napisi stevilo:</p>
+                        <form class="form-inline" method="post" action="/pretvornik">
+                             <div class="form-group">
+                                  <select class="form-control" id="sel1" name="izberi-enoto">
+                                    <option>Km - mi</option>
+                                    <option>Kg - lbs</option>
+                                    <option>Eur - Usd</option>
+                                  </select>
+                             </div>
+                            <input class="form-control" name="vnos-pretvornik" required="required" pattern="[0-9]+" title="Za izracun moras vnesti stevilo" style="text-align:right;">
+                            <button class="btn btn-default" type="submit">Izracun</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="tecaj">Tecaj 17:</h1>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga172">Domaca naloga 17.2: Ugani glavno mesto drzave (OOP)</a>
+                    </h4>
+                </div>
+                <div id="naloga172" class="panel-collapse collapse">
+                    <div class="panel-body"><p>Coming soon!</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga173">Domaca naloga 17.3: Spletna forenzicna aplikacija</a>
+                    </h4>
+                </div>
+                <div id="naloga173" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Preveri, ce se DNA ujema z osebo v nasi bazi (lahko pa preveris testni DNA na desni):</p>
+                        <form class="form-inline col-sm-6" method="post" action="/preveri_dna">
+                            <textarea id="dna-area" rows="6" class="form-control" name="vnos-dna" required="required" pattern="[A-za-z]+" placeholder="Vnesi DNA..."></textarea>
+                            <button id="btn-preveri-dna" class="btn btn-default" type="submit">Preveri dna</button>
+                        </form>
+                        <div class="col-sm-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="dna-txt-p">
+                                    <p>ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="tecaj">Tecaj 18:</h1>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#naloga181">Domaca naloga 18.1: GuestBook</a>
+                    </h4>
+                </div>
+                <div id="naloga181" class="panel-collapse collapse">
+                    <div class="panel-body"><p>Coming soon!</p></div>
+                </div>
+            </div>
+        </div>
+        <img class="img-responsive" id="ninja" src="https://www.smartninja.org/assets/public/img/logo.png">
+    </section>
+{% endblock specifika %}

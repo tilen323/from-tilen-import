@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container kalk">
+        <h1><span class="oranzna">import </span>Ugani stevilo med 1 in 10</h1>
+        <h2>{{ poskus }}</h2>
+
+        <form class="form-inline" method="post" action="/ugani_stevilo">
+            <input class="form-control" name="vnos-ugani-stevilo" required="required" pattern="[0-9]+" title="Vnesi stevilo med 1 in 10">
+            <button class="btn btn-default" type="submit">Poskus</button>
+        </form>
+
+        <a class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
+    </section>
+{% endblock specifika %}

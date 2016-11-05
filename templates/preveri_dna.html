@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container kalk">
+        <h1><span class="oranzna">import </span>Spletna forenzicna aplikacija</h1>
+        <h2>{{ ime }}</h2>
+        <p>Preveri, ce se DNA ujema z osebo v nasi bazi (lahko pa preveris testni DNA na desni):</p>
+        <form class="form-inline col-sm-6" method="post" action="/preveri_dna">
+            <textarea id="dna-area" rows="6" class="form-control" name="vnos-dna" required="required" pattern="[A-za-z]+" placeholder="Vnesi DNA..."></textarea>
+            <button id="btn-preveri-dna" class="btn btn-default" type="submit">Preveri dna</button>
+        </form>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body" id="dna-txt-p">
+                    <p id="dna-p">ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA</p>
+                </div>
+            </div>
+        </div>
+        <a id="dna-nazaj" class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
+    </section>
+{% endblock specifika %}

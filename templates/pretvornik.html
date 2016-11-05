@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container kalk">
+        <h1><span class="oranzna">import </span>Pretvornik enot</h1>
+        <h2>{{ rezultat_pretvorbe }}</h2>
+        <p>Najprej izberi enoto, nato napisi stevilo:</p>
+
+        <form class="form-inline" method="post" action="/pretvornik">
+             <div class="form-group">
+                  <select class="form-control" id="sel1" name="izberi-enoto">
+                    <option>Km - mi</option>
+                    <option>Kg - lbs</option>
+                    <option>Eur - Usd</option>
+                  </select>
+             </div>
+            <input class="form-control" name="vnos-pretvornik" required="required" pattern="[0-9]+" title="Za izracun moras vnesti stevilo" style="text-align:right;">
+            <button class="btn btn-default" type="submit">Izracun</button>
+        </form>
+
+        <a class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
+    </section>
+{% endblock specifika %}

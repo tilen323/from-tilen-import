@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>from Tilen import &copy;</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
+        
+        <link rel="icon" type="image/png" href="icon.png">
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    </head>
+    
+    <body>
+        <div id="head">
+            <header class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                         <nav class="navbar">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/"><span class="oranzna">from </span>
+                                                                 <span class="bela">Tilen</span>
+                                                                 <span class="oranzna"> import</span>
+                                                                 <span class="bela"> &copy;</span></a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moji projekti <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="/naloge">Domace naloge</a></li>
+                                  <li><a href="#">Aplikacije</a></li>
+                                  <li><a href="#">Drugo</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="/blog">Blog</a></li>
+                              <li><a href="/kontakt">Kontakt</a></li>
+                            </ul>
+                          </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        
+        <div id="vsebina">
+            {% block specifika %}{% endblock specifika %}
+        </div>
+
+        <div id="foot">
+            <footer class="container">
+                <p><span class="oranzna">from </span>
+                   <span class="bela">Tilen</span>
+                   <span class="oranzna"> import</span>
+                   <span class="bela"> &copy; 2016</span></p>
+            </footer>
+        </div>
+
+        <!-- Gumb - Nazaj na vrh -->
+        <div class="scroll-top-wrapper ">
+            <span class="scroll-top-inner">
+                <i class="fa fa-2x fa-arrow-circle-up"><span class="glyphicon glyphicon-chevron-up"></span></i>
+            </span>
+        </div>
+
+        <!-- skripta za gumb -->
+        <script>
+
+        $(function(){
+
+            $(document).on( 'scroll', function(){
+
+                if ($(window).scrollTop() > 100) {
+                    $('.scroll-top-wrapper').addClass('show');
+                } else {
+                    $('.scroll-top-wrapper').removeClass('show');
+                }
+            });
+        });
+        </script>
+
+        <script>
+
+        $(function(){
+
+            $(document).on( 'scroll', function(){
+
+                if ($(window).scrollTop() > 100) {
+                    $('.scroll-top-wrapper').addClass('show');
+                } else {
+                    $('.scroll-top-wrapper').removeClass('show');
+                }
+            });
+
+            $('.scroll-top-wrapper').on('click', scrollToTop);
+        });
+
+        function scrollToTop() {
+            verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+            element = $('body');
+            offset = element.offset();
+            offsetTop = offset.top;
+            $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+        }
+        </script>
+        
+        
+            
+    </body>
+    
+    
+</html>

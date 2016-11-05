@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container kalk">
+        <h1><span class="oranzna">import </span>Kalkulator</h1>
+        <h2>{{ vnos_enacbe }} = {{ rezultat_enacbe }}</h2>
+        <p>Vnesi enacbo (+, - ali *):</p>
+
+        <form class="form-inline" method="post" action="/kalkulator ">
+            <input class="form-control" name="vnos-enacbe" required="required">
+            <button class="btn btn-default" type="submit">Rezultat</button>
+        </form>
+
+        <a class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
+    </section>
+{% endblock specifika %}
