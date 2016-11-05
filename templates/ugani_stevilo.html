@@ -3,13 +3,18 @@
 {% block specifika %}
     <section class="container kalk">
         <h1><span class="oranzna">import </span>Ugani stevilo med 1 in 10</h1>
-        <h2>{{ poskus }}</h2>
-
+        <h2>{% if "keks" in poskus %}
+                <span class="glyphicon glyphicon-ok"></span>
+            {% else %}
+                <span class="glyphicon glyphicon-remove"></span>
+            {% endif %} {{ poskus }}</h2>
+        <p>Vnesi stevilo med 1 in 10:</p>
         <form class="form-inline" method="post" action="/ugani_stevilo">
             <input class="form-control" name="vnos-ugani-stevilo" required="required" pattern="[0-9]+" title="Vnesi stevilo med 1 in 10">
             <button class="btn btn-default" type="submit">Poskus</button>
         </form>
-
+        
+        <img id="img-stevila" class="img-responsive" src="http://www.v2ktravelgroup.com/attachments/Image/Stick_man_thinking_of_idea_iu5d.gif?template=generic">
         <a class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
     </section>
 {% endblock specifika %}

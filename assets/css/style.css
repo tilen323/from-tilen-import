@@ -121,6 +121,29 @@ section {
     border-bottom: 1px solid #4e4e4e;
 }
 
+#math {
+    margin: 10 auto;
+    width: 400;
+}
+
+#img-stevila {
+    margin: 20 auto 10 auto;
+    width: 300;
+}
+
+#img-pretvornik {
+    margin: 10 auto;
+}
+
+#kviz-crta {
+    border-top: 1px solid #b4b4b4;
+}
+
+#img-sveta {
+    margin: 10 auto;
+    width: 695;
+}
+
 .kalk h1 {
     color: #d9d9d9;
     margin-top: 20;
