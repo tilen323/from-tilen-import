@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block specifika %}
+    <section class="container kalk">
+        <h1><span class="oranzna">import </span>Kviz: Glavna mesta drzav</h1>
+
+        <div class="col-sm-6">
+            <p>Katero je glavno mesto {{ drzava }}:</p>
+            <form class="form-inline" method="post" action="/kviz ">
+                <input class="hidden" type="checkbox" name="pravilen-odg" value="{{ mesto }}" checked>
+                <input class="hidden" type="checkbox" name="drzava-odg" value="{{ drzava }}" checked>
+                <input class="form-control" name="vnos-kviz" required="required">
+                <button class="btn btn-default" type="submit">Preveri</button>
+            </form>
+            <h2 id="kviz-rezultat">{% if "pravilen" in rezultat %}
+                                       <span class="glyphicon glyphicon-ok"></span>
+                                   {% elif "napacen" in rezultat %}
+                                       <span class="glyphicon glyphicon-remove"></span>
+                                   {% else %}
+                                       <span class="glyphicon glyphicon-education"></span>
+                                   {% endif %} {{ rezultat }}
+            </h2>
+            <a class="btn btn-default" href="/naloge" role="button">Nazaj na naloge</a>
+        </div>
+
+        <div class="col-sm-6">
+           <img id="slika-mesta" class="img-responsive" src="{{ slika }}">
+        </div>
+    </section>
+{% endblock specifika %}

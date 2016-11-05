@@ -4,7 +4,7 @@ import jinja2
 import webapp2
 import random
 from time import gmtime, strftime
-from NarediObjekt import OsebaDna
+from NarediObjekt import *
 
 
 template_dir = os.path.join(os.path.dirname(__file__), "templates")
@@ -137,6 +137,41 @@ class Preveri_dnaHandler(BaseHandler):                              ## - Forenzi
         params = {"ime": ime}
         return self.render_template("preveri_dna.html", params=params)
 
+class KvizHandler(BaseHandler):
+    def get(self):
+        rng_st = random.randint(0, (len(seznam_drzav) - 1))
+        rng_drzava = seznam_drzav[rng_st].drzava
+        rng_slika = seznam_drzav[rng_st].url_slike
+        rng_mesto = seznam_drzav[rng_st].gl_mesto
+        rezultat = "Pozdravljeni v nasem kvizu!"
+
+        params = {"drzava": rng_drzava, "slika": rng_slika, "rezultat": rezultat, "mesto": rng_mesto}
+        return self.render_template("kviz.html", params=params)
+
+    def post(self):
+        vnos_kviz = self.request.get("vnos-kviz")
+        pravilen_odg = self.request.get("pravilen-odg")
+        pravilen_drz = self.request.get("drzava-odg")
+        if vnos_kviz.lower() == pravilen_odg.lower():
+            rezultat = "Odgovor je pravilen! Glavno mesto " + pravilen_drz + " je res " + pravilen_odg + "."
+        else:
+            rezultat = "Odgovor je napacen! Glavno mesto " + pravilen_drz + " je " + pravilen_odg + "."
+
+        rng_st = random.randint(0, (len(seznam_drzav) - 1))
+        rng_drzava = seznam_drzav[rng_st].drzava
+        rng_slika = seznam_drzav[rng_st].url_slike
+        rng_mesto = seznam_drzav[rng_st].gl_mesto
+
+        params = {"drzava": rng_drzava, "slika": rng_slika, "rezultat": rezultat, "mesto": rng_mesto}
+        return self.render_template("kviz.html", params=params)
+
+seznam_drzav = []
+seznam_drzav.append(GlavnaMesta("Slovenije", "Ljubljana", "https://unaprojektiranje.files.wordpress.com/2013/01/l_176_7_8enhancer.jpg"))
+seznam_drzav.append(GlavnaMesta("Hrvaske", "Zagreb", "http://loveit.hr/media/uploads/public/destination/p85-zagreb_3.jpg"))
+seznam_drzav.append(GlavnaMesta("Avstrije", "Dunaj", "http://7wallpapers.net/wp-content/uploads/5_Vienna.jpg"))
+seznam_drzav.append(GlavnaMesta("Nemcije", "Berlin", "https://images8.alphacoders.com/710/thumb-1920-710914.jpg"))
+seznam_drzav.append(GlavnaMesta("Italije", "Rim", "http://www.worldfortravel.com/wp-content/uploads/2015/07/Rome-Italy-Travel.jpg"))
+
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
@@ -147,4 +182,5 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/ugani_stevilo', Ugani_steviloHandler),
     webapp2.Route('/pretvornik', PretvornikHandler),
     webapp2.Route('/preveri_dna', Preveri_dnaHandler),
+    webapp2.Route('/kviz', KvizHandler),
 ], debug=True)

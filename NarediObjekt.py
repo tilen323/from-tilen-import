@@ -17,3 +17,10 @@ class OsebaDna():
             return True
         else:
             return False
+
+class GlavnaMesta():
+
+    def __init__(self, drzava, gl_mesto, url_slike):
+        self.drzava = drzava
+        self.gl_mesto = gl_mesto
+        self.url_slike = url_slike
