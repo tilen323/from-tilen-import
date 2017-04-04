@@ -1,10 +1,10 @@
 # About
 
-Basic GAE project with Jinja templating engine
+from Tilen import * - GAE web application
 
-# Usage
+- Aplikacijo sem naredil tekom tečaja WD1 - na SmartNinja šoli programiranja ob učenju Python jezika
+- na katero sem oddajal naloge, ki sem se jih naučil
+- dodana tudi igra narejena v JavaScrip - Reaction tester
 
-1. Click on Download ZIP
-2. Save on your disk and unzip
-3. Change the application ID in app.yaml
-4. Build something nice ;)
+url: http://from-tilen-import.appspot.com/
+

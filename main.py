@@ -44,6 +44,14 @@ class BlogHandler(BaseHandler):
         params = {}
         return self.render_template("blog.html", params=params)
 
+class AplikacijeHandler(BaseHandler):
+    def get(self):
+        return self.render_template("aplikacije.html")
+
+class ReactionTestHandler(BaseHandler):
+    def get(self):
+        return self.render_template("reaction-test.html")
+
 class NalogeHandler(BaseHandler):
     def get(self):
 
@@ -183,4 +191,6 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/pretvornik', PretvornikHandler),
     webapp2.Route('/preveri_dna', Preveri_dnaHandler),
     webapp2.Route('/kviz', KvizHandler),
+    webapp2.Route('/aplikacije', AplikacijeHandler),
+    webapp2.Route('/reaction-test', ReactionTestHandler),
 ], debug=True)

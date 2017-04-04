@@ -206,6 +206,32 @@ section {
     margin-bottom: 10;
     border: 1px solid #575757;
 }
+.reaction-test {
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reaction-test .well {
+    width: 540px;
+    margin-bottom: 54px;
+}
+
+#box {
+    border: 1px solid black;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    background-color: white;
+}
+
+#shape {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    display: none;
+    position: relative;
+}
 
 /* gumb - nazaj na vrh */
 .scroll-top-wrapper {
